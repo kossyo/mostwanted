@@ -6,7 +6,7 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "races")
+@Table(name = "racers")
 public class Racer extends BaseEntity {
 
     @Column(name = "name", nullable = false, unique = true)
@@ -15,7 +15,7 @@ public class Racer extends BaseEntity {
     @Column(name = "age", nullable = false, unique = true)
     private Integer age;
 
-    @Column(name = "bounty", length = 19, precision = 2)
+    @Column(name = "bounty")
     private BigDecimal bounty;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
