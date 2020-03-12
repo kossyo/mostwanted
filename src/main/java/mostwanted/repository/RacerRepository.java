@@ -4,7 +4,10 @@ import mostwanted.domain.entities.Racer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
 @Repository
 public interface RacerRepository extends JpaRepository<Racer, Integer> {
-    // TODO : Implement me
+
+    Optional<Racer> findByName(String name);
 }

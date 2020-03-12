@@ -7,41 +7,34 @@ import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.validation.Validation;
+import javax.validation.Validator;
+
 @Configuration
 public class ApplicationBeanConfiguration {
 
     @Bean
     public FileUtil fileUtil() {
-        // TODO : Implement me
-        return null;
-        //return new FileUtilImpl();
+        return new FileUtilImpl();
     }
 
     @Bean
     public Gson gson() {
-        // TODO : Implement me
-        return null;
-        //return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
+        return new GsonBuilder().excludeFieldsWithoutExposeAnnotation().setPrettyPrinting().create();
     }
 
     @Bean
     public XmlParser xmlParser() {
-        // TODO : Implement me
-        return null;
-        //return new XmlParserImpl();
+        return new XmlParserImpl();
     }
 
     @Bean
     public ValidationUtil validationUtil() {
-        // TODO : Implement me
-        return null;
-        //return new ValidationUtilImpl();
+        return new ValidationUtilImpl(Validation.buildDefaultValidatorFactory().getValidator());
     }
 
     @Bean
     public ModelMapper modelMapper() {
-        // TODO : Implement me
-        return null;
-        //return new ModelMapper();
+        return new ModelMapper();
     }
 }

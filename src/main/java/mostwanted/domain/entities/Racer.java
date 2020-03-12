@@ -12,7 +12,7 @@ public class Racer extends BaseEntity {
     @Column(name = "name", nullable = false, unique = true)
     private String name;
 
-    @Column(name = "age", nullable = false, unique = true)
+    @Column(name = "age")
     private Integer age;
 
     @Column(name = "bounty")

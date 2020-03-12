@@ -1,41 +1,39 @@
-package mostwanted.domain.entities;
+package mostwanted.domain.dtos.import_;
 
-import javax.persistence.*;
+import com.google.gson.annotations.Expose;
+import mostwanted.domain.entities.Racer;
+
+import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
-@Entity
-@Table(name = "cars")
-public class Car extends BaseEntity {
+public class CarImportDto implements Serializable {
 
-    @Column(name = "brand", nullable = false)
+    @Expose
+    @NotNull
     private String brand;
 
-    @Column(name = "model", nullable = false)
+    @Expose
+    @NotNull
     private String model;
 
-    @Column(name = "price")
+    @Expose
     private BigDecimal price;
 
-    @Column(name = "year_of_production", nullable = false)
+    @Expose
+    @NotNull
     private Integer yearOfProduction;
 
-    @Column(name = "max_speed")
+    @Expose
     private double maxSpeed;
 
-    @Column(name = "zero_to_sixty")
+    @Expose
     private double zeroToSixty;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "racer_id", referencedColumnName = "id")
-    private Racer racer;
+    @Expose
+    private String racerName;
 
-    @OneToMany(mappedBy = "car")
-    private Set<RaceEntry> raceEntries;
-
-    public Car() {
-        this.raceEntries = new LinkedHashSet<>();
+    public CarImportDto() {
     }
 
     public String getBrand() {
@@ -86,19 +84,11 @@ public class Car extends BaseEntity {
         this.zeroToSixty = zeroToSixty;
     }
 
-    public Racer getRacer() {
-        return racer;
+    public String getRacerName() {
+        return racerName;
     }
 
-    public void setRacer(Racer racer) {
-        this.racer = racer;
-    }
-
-    public Set<RaceEntry> getRaceEntries() {
-        return raceEntries;
-    }
-
-    public void setRaceEntries(Set<RaceEntry> raceEntries) {
-        this.raceEntries = raceEntries;
+    public void setRacerName(String racerName) {
+        this.racerName = racerName;
     }
 }
