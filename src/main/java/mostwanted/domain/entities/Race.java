@@ -9,8 +9,8 @@ import java.util.Set;
 @Table(name = "races")
 public class Race extends BaseEntity {
 
-    @Column(name = "laps", nullable = false)
-    @Size(min = 0)
+    @Column(name = "laps", nullable = false, columnDefinition = "int default 0")
+//    @Size(min = 0)
     private Integer laps;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

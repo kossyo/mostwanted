@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <races>
-    <races>
+    <race>
         <laps>4</laps>
-        <districts-name>Jackson</districts-name>
+        <district-name>Jackson</district-name>
         <entries>
             <entry id="10"/>
             <entry id="9"/>
         </entries>
-    </races>
-    <races>
+    </race>
+    <race>
         <laps>4</laps>
-        <districts-name>Buell</districts-name>
+        <district-name>Buell</district-name>
         <entries>
             <entry id="13"/>
             <entry id="14"/>
         </entries>
-    </races>
-    <races>
+    </race>
+    <race>
         <laps>6</laps>
-        <districts-name>Trailsway</districts-name>
+        <district-name>Trailsway</district-name>
         <entries>
             <entry id="8"/>
             <entry id="15"/>
@@ -26,23 +26,23 @@
             <entry id="12"/>
             <entry id="2"/>
         </entries>
-    </races>
-    <races>
+    </race>
+    <race>
         <laps>2</laps>
-        <districts-name>Holmberg</districts-name>
+        <district-name>Holmberg</district-name>
         <entries>
             <entry id="7"/>
             <entry id="4"/>
             <entry id="6"/>
         </entries>
-    </races>
-    <races>
+    </race>
+    <race>
         <laps>3</laps>
-        <districts-name>Towne</districts-name>
+        <district-name>Towne</district-name>
         <entries>
             <entry id="3"/>
             <entry id="11"/>
             <entry id="1"/>
         </entries>
-    </races>
+    </race>
 </races>
