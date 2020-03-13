@@ -82,7 +82,7 @@ public class RaceServiceImpl implements RaceService {
                 RaceEntry raceEntry = this.raceEntryRepository.findById(entryImportDto.getId()).orElse(null);
                 if (raceEntry != null){
                     raceEntry.setRace(race);
-                    this.raceEntryRepository.saveAndFlush(raceEntry); //zakomentirai ako ima cascade
+//                    this.raceEntryRepository.saveAndFlush(raceEntry); //zakomentirai ako ima cascade
                 }
             }
             this.raceRepository.saveAndFlush(race);

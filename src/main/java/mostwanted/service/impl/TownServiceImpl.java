@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Set;
+
 import static mostwanted.common.Constants.*;
 
 @Service
@@ -77,6 +79,15 @@ public class TownServiceImpl implements TownService {
 
     @Override
     public String exportRacingTowns() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        Set<Town> towns = this.townRepository.exportTownsWithRacersInThem();
+        for (Town town : towns) {
+            sb
+                    .append("Name: ").append(town.getName()).append(System.lineSeparator())
+                    .append("Racers: ").append(town.getRacers().size())
+                    .append(System.lineSeparator())
+                    .append(System.lineSeparator());
+        }
+        return sb.toString().trim();
     }
 }

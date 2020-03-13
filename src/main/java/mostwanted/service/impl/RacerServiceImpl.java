@@ -2,6 +2,8 @@ package mostwanted.service.impl;
 
 import com.google.gson.Gson;
 import mostwanted.domain.dtos.import_.RacerImportDto;
+import mostwanted.domain.entities.BaseEntity;
+import mostwanted.domain.entities.Car;
 import mostwanted.domain.entities.Racer;
 import mostwanted.domain.entities.Town;
 import mostwanted.repository.RacerRepository;
@@ -14,6 +16,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import static mostwanted.common.Constants.*;
 
@@ -86,6 +92,26 @@ public class RacerServiceImpl implements RacerService {
 
     @Override
     public String exportRacingCars() {
-        return null;
+        StringBuilder sb = new StringBuilder();
+        Set<Racer> racers = this.racerRepository.exportRacersWithCars();
+
+        for (Racer racer : racers) {
+            sb
+                    .append("Name: ").append(racer.getName()).append(System.lineSeparator());
+            if (racer.getAge() != null) {
+                sb.append("Age: ").append(racer.getAge());
+            }
+            sb.append("Cars:").append(System.lineSeparator());
+            Set<Car> cars = racer.getCars();
+            cars = cars.stream().sorted(Comparator.comparingInt(BaseEntity::getId))
+                    .collect(Collectors.toCollection(LinkedHashSet::new));
+            for (Car car : cars) {
+                sb.append(" ").append(car.getBrand()).append(" ")
+                        .append(car.getModel()).append(" ")
+                        .append(car.getYearOfProduction()).append(System.lineSeparator());
+            }
+            sb.append(System.lineSeparator());
+        }
+        return sb.toString().trim();
     }
 }
