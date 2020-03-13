@@ -20,7 +20,9 @@ public class RaceEntry extends BaseEntity {
     @JoinColumn(name = "racer_id", referencedColumnName = "id")
     private Racer racer;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER
+            , cascade = CascadeType.ALL
+    )
     @JoinColumn(name = "race_id", referencedColumnName = "id")
     private Race race;
 
